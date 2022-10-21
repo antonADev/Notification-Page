@@ -1,0 +1,215 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --veryLightGrayishBlue: hsl(210, 60%, 98%);
+  --lightGrayishBlueFirst: hsl(211, 68%, 94%);
+  --lightGrayishBlueSecond: hsl(205, 33%, 90%);
+  --grayishBlue: hsl(219, 14%, 63%);
+  --darkGrayishBlue: hsl(219, 12%, 42%);
+  --veryDarkBlue: hsl(224, 21%, 14%);
+  --myRed: hsl(1, 90%, 64%);
+  --myBlue: hsl(219, 85%, 26%);
+}
+
+@font-face {
+  font-family: 'Plus Jakarta';
+  src: url(./assets/fonts/PlusJakartaSans-VariableFont_wght.ttf)
+    format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta';
+  background-color: var(--white);
+  position: relative;
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    background-color: var(--veryLightGrayishBlue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+}
+
+.app {
+  background-color: var(--white);
+  border-radius: 15px;
+  margin: 0px auto;
+  max-width: 90vw;
+
+  @media screen and (min-width: 768px) {
+    max-width: 45vw;
+    min-width: 400px;
+    padding: 0 1.8rem;
+  }
+}
+
+.header {
+  color: var(--veryDarkBlue);
+  display: flex;
+  font-size: 0.6rem;
+  justify-content: space-between;
+  margin: 25px auto;
+
+  button {
+    background: none;
+    border: none;
+    color: var(--darkGrayishBlue);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--myBlue);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-weight: 900;
+      margin-right: 10px;
+    }
+    p {
+      background-color: var(--myBlue);
+      border-radius: 5px;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 2.5px 11.5px 3px 11.5px;
+      text-align: center;
+    }
+  }
+}
+
+.notification {
+  border-radius: 5px;
+  display: flex;
+  font-size: 0.9rem;
+  min-height: 70px;
+  min-width: 100%;
+  padding: 0 0.8rem;
+
+  &:not(div:nth-last-of-type(1)) {
+    margin-bottom: 0.7rem;
+  }
+
+  &__avatar-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 5rem;
+    margin: 1rem 0.8rem 1rem 0;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 13px 0;
+    width: 100%;
+    word-break: keep-all;
+
+    &__info {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: space-between;
+      color: var(--darkGrayishBlue);
+      margin-bottom: 2px;
+      width: 100%;
+
+      p {
+        color: var(--darkGrayishBlue);
+        font-weight: 400;
+      }
+
+      &__user-name-link {
+        color: var(--veryDarkBlue);
+      }
+      &__page-link {
+        color: var(--darkGrayishBlue);
+      }
+
+      a {
+        font-weight: 700;
+        text-decoration: none;
+        &:active {
+          color: var(--myBlue);
+        }
+        &:visited {
+          text-decoration: none;
+          color: none;
+        }
+        &:hover {
+          color: var(--myBlue);
+        }
+      }
+
+      .group {
+        color: var(--myBlue);
+      }
+
+      &__activity-time {
+        margin-top: 3px;
+
+        p {
+          color: var(--grayishBlue);
+        }
+      }
+    }
+  }
+  &__page-link-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 15px 0 15px 15px;
+
+    img {
+      width: 40px;
+
+      &:hover {
+        outline: 2px solid var(--lightGrayishBlueSecond);
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.message_container {
+  border: 1px solid var(--lightGrayishBlueSecond);
+  border-radius: 5px;
+  color: var(--darkGrayishBlue);
+  margin-top: 0.7rem;
+  padding: 1rem;
+
+  &:hover {
+    background-color: var(--lightGrayishBlueFirst);
+  }
+}
+
+.unread {
+  background-color: var(--veryLightGrayishBlue);
+  position: relative;
+
+  span::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    color: var(--myRed);
+    background-color: var(--myRed);
+    border-radius: 50%;
+    padding: 4px 4px;
+    margin-left: 0.3rem;
+  }
+}
